@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import Restaurants from './pages/Restaurants/Restaurants';
+import AuthPage from './pages/AuthPage/AuthPage';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  state = {
+    user:null,
+  }
+  
+  setUserInState = (incomingUserData) => {
+    this.setState({ user: incomingUserData})
+  }
+
+  componentDidMount() {
+    let token = localStorage.getItem('token')
+    if (token) {
+      // YOU DO: check expiry!
+      let userDoc = JSON.parse(atob(token.split('.')[1])).user // decode jwt token
+      this.setState({user: userDoc})      
+    }
+  }
+  
+  render() {
+    return (
+     <BrowserRouter>
+      <main className="App">
+       
+        { this.state.user ? 
+            <Switch>
+              <Route path='/Restaurants' render={(props) => (
+                <Restaurants {...props}/>
+              )}/>
+              {/* <Route path='/restaurants' render={(props) => (
+                <OrderHistoryPage {...props}/>
+              )}/> */}
+
+              {/* <Redirect to="/" /> */}
+            </Switch>
+          :
+          <Route path='/' render={(props) => (
+          <AuthPage setUserInState={this.setUserInState} {...props}/>
+          )}/>
+
+        }
+      </main>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

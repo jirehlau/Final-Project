@@ -1,8 +1,13 @@
+main{
+  background-color: pink;
+}
+
 .App {
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +40,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
