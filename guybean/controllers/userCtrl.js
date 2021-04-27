@@ -8,19 +8,19 @@ async function create(req, res) {
   console.log(req.body)
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, SALT_ROUNDS)
-    console.log("hashing the password")
+    // console.log("hashing the password")
     const user = await User.create({name: req.body.name, email:req.body.email, password:hashedPassword,});
-    console.log("This line is trying to get the user in the database")
+    // console.log("This line is trying to get the user in the database")
 
     // creating a jwt: 
     // the first parameter specifies what we want to put into the token (in this case, our user document)
     // the second parameter is a "secret" code. This lets our server verify if an incoming jwt is legit or not.
     const token = jwt.sign({ user }, process.env.SECRET,{ expiresIn: '24h' });
-    console.log("creating a JWT token")
+    // console.log("creating a JWT token")
     res.json(token); // send it to the frontend
-    console.log("send token to frontend")
+    // console.log("send token to frontend")
   } catch (err) {
-    console.log("user creation error", err)
+    // console.log("user creation error", err)
     res.status(400).json(err);
   }
 }

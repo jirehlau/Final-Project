@@ -28,17 +28,17 @@ class SignUpForm extends Component {
       console.log("sending login details to server")
       // 2. Check "fetchResponse.ok". False means status code was 4xx from the server/controller action
       if (!fetchResponse.ok) throw new Error('Fetch failed - Bad request')
-      console.log("checking for server errors")
+      // console.log("checking for server errors")
       let token = await fetchResponse.json() // 3. decode fetch response to get jwt from srv
       localStorage.setItem('token', token);  // 4. Stick token into localStorage
-      console.log("putting token into local storage")
+      // console.log("putting token into local storage")
       const userDoc = JSON.parse(atob(token.split('.')[1])).user; // 5. Decode the token + put user document into state
-      console.log("decoding token and grabbing user from token")
+      // console.log("decoding token and grabbing user from token")
       this.props.setUserInState(userDoc)
-      console.log("putting user into state")
+      // console.log("putting user into state")
       this.props.history.push('/Restaurants')
     } catch (err) { 
-      console.log("SignupForm error", err)
+      // console.log("SignupForm error", err)
       this.setState({ error: 'Sign Up Failed - Try Again' });
     } 
   }

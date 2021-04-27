@@ -36,10 +36,10 @@ class App extends React.Component{
                 <OrderHistoryPage {...props}/>
               )}/> */}
 
-              {/* <Redirect to="/" /> */}
+              <Redirect to="/Restaurants" />
             </Switch>
           :
-          <Route path='/' render={(props) => (
+          <Route path='/Restaurants' render={(props) => (
           <AuthPage setUserInState={this.setUserInState} {...props}/>
           )}/>
 

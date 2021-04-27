@@ -3,11 +3,14 @@ import './MyRestaurants.css';
 
 class MyRestaurants extends Component {
 
+
     render(){
         return(
-            <div className="MyRestaurants">
-                <h1>My Restaurants</h1>
-            </div>
+            <main className="MyRestaurants">
+                <nav className="MyRestaurantsNav">
+                    <h1>My Restaurants</h1>
+                </nav>
+            </main>
         )
     }
 }

@@ -15,7 +15,7 @@ async function index(req, res) {
 async function create(req, res) {
   try {
     // 1. put the order in the database (the data will be incoming via `req.body`)
-    await RestaurantModel.create({lineItems: req.body.lineItems, user: req.user._id})
+    await RestaurantModel.create({lineItems: req.body.lineItems, userId: req.user._id})
     // 2. send a response to frontend - typically we send back the newly created order, or all the list of orders, or just an 'ok'
     res.status(200).json('ok')
  } catch(err) {
@@ -36,8 +36,10 @@ function myRestaurantsDetails(req, res) {
 }
 
  async function myRestaurants(req,res){
+   console.log("myRestaurants function")
   let MyRestaurants = await RestaurantModel.find({userId: req.user._id});
-  res.render('restaurantUser/myRestaurants',{MyRestaurants: MyRestaurants})
+  console.log("req user id")
+  res.status(200).json(MyRestaurants)
 }
 
 module.exports = {
