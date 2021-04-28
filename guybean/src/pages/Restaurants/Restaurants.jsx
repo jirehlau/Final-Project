@@ -7,14 +7,16 @@ import UserLogOut from '../../components/UserLogOut/UserLogOut';
 
  class Restaurants extends React.Component {
   state = {
-    name: "",
-    registrationDate: "",
-    cuisineType: "",
-    address: "",
-    contactNumber: "", 
-    paymentOptions: "",
-    restaurantInfo: "",
-    pictureURL: "",
+    restaurants: [{
+      name: "",
+      registrationDate: "",
+      cuisineType: "",
+      address: "",
+      contactNumber: "", 
+      paymentOptions: "",
+      restaurantInfo: "",
+      pictureURL: "",
+  }],
 } 
 
 async componentDidMount() {

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import './MyRestaurants.css';
 
 class MyRestaurants extends Component {
-
+    
 
     render(){
         return(

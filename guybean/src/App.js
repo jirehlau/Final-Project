@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Restaurants from './pages/Restaurants/Restaurants';
 import AuthPage from './pages/AuthPage/AuthPage';
 
+
 class App extends React.Component{
   state = {
     user:null,
@@ -32,17 +33,18 @@ class App extends React.Component{
               <Route path='/Restaurants' render={(props) => (
                 <Restaurants {...props}/>
               )}/>
-              {/* <Route path='/restaurants' render={(props) => (
-                <OrderHistoryPage {...props}/>
+              {/* <Route path='/AddRestaurantForm' render={(props) => (
+                <AddRestaurantForm {...props}/>
               )}/> */}
 
               <Redirect to="/Restaurants" />
             </Switch>
           :
-          <Route path='/Restaurants' render={(props) => (
-          <AuthPage setUserInState={this.setUserInState} {...props}/>
-          )}/>
-
+          <div>
+            <Route path='/' render={(props) => (
+            <AuthPage setUserInState={this.setUserInState} {...props}/>
+            )}/>
+          </div>
         }
       </main>
       </BrowserRouter>

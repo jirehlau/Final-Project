@@ -9,7 +9,7 @@ router.post('/', restaurantCtrl.create)
 // GET /api/orders
 router.get('/', restaurantCtrl.index)
 
-router.get('/addrestaurant',restaurantCtrl.addRestaurants)  //ADDING RESTAURANTS 
+router.get('/addrestaurantform',restaurantCtrl.AddRestaurantForm)  //ADDING RESTAURANTS 
 
 router.get('/myrestaurants',restaurantCtrl.myRestaurants) //THIS IS THE SUMMARY PAGE OF MY RESTAURANT
 

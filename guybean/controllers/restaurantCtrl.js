@@ -24,8 +24,8 @@ async function create(req, res) {
 }
 
 // ADDING RESTAURANTS 
-function addRestaurants(req,res){
-  res.render('restaurantUser/addRestaurant')
+function AddRestaurantForm(req,res){
+  res.status(200).json(AddRestaurantForm)
 }
 
 //   THIS IS DETAILS OF RESTAURANT PAGE 
@@ -45,7 +45,7 @@ function myRestaurantsDetails(req, res) {
 module.exports = {
   create,
   index,
-  addRestaurants,
+  AddRestaurantForm,
   myRestaurantsDetails,
   myRestaurants,
 }
