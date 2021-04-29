@@ -9,15 +9,15 @@ GuyBean
 
 <h2>Restaurants</h2>
 
-![Restaurants]()
+![Restaurants]('/restaurants.png')
 
 <h2>SignUp Page</h2>
 
-![SignUp Page]()
+![SignUp Page]('/signup.png')
 
 <h2>Add Restaurant</h2>
 
-![Add Restaurant]()
+![Add Restaurant]('/addRestaurant.png')
 
 <h2>Technologies Used</h2>
 
