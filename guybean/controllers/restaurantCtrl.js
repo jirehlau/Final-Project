@@ -24,8 +24,19 @@ async function create(req, res) {
 }
 
 // ADDING RESTAURANTS 
-function AddRestaurantForm(req,res){
-  res.status(200).json(AddRestaurantForm)
+async function AddRestaurantForm(req,res){
+    await RestaurantModel.create({
+      name: req.body.name, 
+      registrationDate: req.body.registrationDate,
+      cuisineType: req.body.cuisineType,
+      address: req.body.address,
+      contactNumber: req.body.contactNumber,
+      paymentOptions: req.body.paymentOptions,
+      restaurantInfo: req.body.restaurantInfo,
+      pictureURL: req.body.pictureURL,
+    })
+    console.log("add restaurant form controller")
+    res.status(200).json("everything is ok")
 }
 
 //   THIS IS DETAILS OF RESTAURANT PAGE 
@@ -37,8 +48,9 @@ function myRestaurantsDetails(req, res) {
 
  async function myRestaurants(req,res){
    console.log("myRestaurants function")
-  let MyRestaurants = await RestaurantModel.find({userId: req.user._id});
-  console.log("req user id")
+   console.log(req.user._id)
+  let MyRestaurants = await RestaurantModel.find({});
+  console.log(MyRestaurants)
   res.status(200).json(MyRestaurants)
 }
 

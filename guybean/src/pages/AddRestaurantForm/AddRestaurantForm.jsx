@@ -1,27 +1,46 @@
 import { Component } from 'react';
 import './AddRestaurantForm.css';
+import { Link } from 'react-router-dom';
+// import axios from 'axios';
+
 
 class AddRestaurantForm extends Component {
+
    state = {
-        restaurants: [{ 
-            name: "", 
-            registrationDate: "",
-            cuisineType: "",
-        }],
+        name: "", 
+        registrationDate: "",
+        cuisineType: "",
+        address: "",
+        contactNumber:"",
+        paymentOptions: "",
+        restaurantInfo: "",
+        // selectedFile: null
     };
 
-    addRestaurant = async () => {
+    addRestaurant = async (e) => {
+        e.preventDefault();
+        console.log("before try")
         try {
-        let fetchResponse = await fetch("/api/restaurantRoutes/AddRestaurantForm", {
+            console.log("before fetch")
+        let fetchResponse = await fetch("/api/restaurantRoutes/addrestaurantform", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({restaurants: this.state.restaurants}) // <-- send this object to server
+            body: JSON.stringify({
+                // restaurants: this.state.restaurants,
+                name: this.state.name,
+                registrationDate: this.state.registrationDate,
+                cuisineType: this.state.cuisineType,
+                address: this.state.address,
+                contactNumber: this.state.contactNumber,
+                paymentOptions: this.state.paymentOptions,
+                restaurantInfo: this.state.restaurantInfo,
+                pictureURL: this.state.pictureURL,
+                }) // <-- send this object to server
             }) 
+            console.log("fetching response")
         let serverResponse = await fetchResponse.json() // <-- decode fetch response
-        console.log("Success:", serverResponse)   // <-- log server response
-
+        console.log("Success, this is jireh:", serverResponse)   // <-- log server response
         // if the order was sent over without errors, set state to empty
-        this.setState({restaurants: []})
         } catch (err) {
         console.error("Error:", err) // <-- log if error 
         }
@@ -31,22 +50,31 @@ class AddRestaurantForm extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    // fileSelectedHandler = event => {
+    //     this.setState({
+    //         selectedFile: event.target.files[0]
+    //     })
+    // }
+    // fileUploadHandler =() => {
+    //     const fd = new FormData();
+    //     fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+    //     axios.post('', fd)
+    //         .then(res => {
+    //             console.log(res);
+    //     });
+    // }
 
     render(){
         return(
             <main className="AddRestaurantForm">
-                <h1>Add Restaurant Form</h1>
-                {this.state.restaurants.map(r => (
-                    <article key={r.restaurants}>
-                        <div>{r.name}</div> 
-                        <div>{r.registrationDate}</div>
-                        <div>{r.cuisineType}</div>
-                    </article>
-                ))}
-                <form>
+                <nav className="AddRestaurantFormNav">
+                    <h1>Add Restaurant Form</h1>
+                    <Link to ='../MyRestaurants/MyRestaurants.jsx'>Restaurants</Link>
+                </nav>
+                <form onSubmit={this.addRestaurant}>
                     <label>
                         <p>Restaurant Name</p>
-                        <input name="name" value={this.state.name} onChange={this.handleChange} />
+                        <input name="name"  placeholder="Lau's Cuisine" value={this.state.name} onChange={this.handleChange} />
                     </label>
                     <label>
                         <p>Incorporation Date</p>
@@ -65,8 +93,29 @@ class AddRestaurantForm extends Component {
                             <option value="Others">Others</option>        
                         </select>    
                     </label>
+                    <label>
+                    <p>Address</p>
+                        <input type="text" name="address" placeholder="123 Eats Way" value={this.state.address} onChange={this.handleChange} />                  
+                    </label>
+                    <label>
+                    <p>Contact Number</p>
+                        <input type="text" name="contactNumber" placeholder="(416) 225-1234" value={this.state.contactNumber} onChange={this.handleChange} />                  
+                    </label>
+                    <label>
+                    <p>Payment Options</p>
+                        <input type="text" name="paymentOptions" placeholder="Cash, Credit card, etc" value={this.state.paymentOptions} onChange={this.handleChange} />                  
+                    </label>
+                    <label>
+                    <p>Additional Information</p>
+                        <input type="text" name="restaurantInfo" placeholder="Cash only, indoors and patio, etc" value={this.state.restaurantInfo} onChange={this.handleChange} />                  
+                    </label> 
+                    <label>
+                    <p>Insert Picture with URL</p>
+                        <input type="text" name="pictureURL" placeholder="Cash only, indoors and patio, etc" value={this.state.pictureURL} onChange={this.handleChange} />                  
+                    </label> 
                     <br></br><br></br>
-                    <button onSubmit={this.addRestaurant}>Add Restaurant</button>
+
+                    <button onClick={this.addRestaurant}>Add Restaurant</button>
                 </form>
             </main>
         )

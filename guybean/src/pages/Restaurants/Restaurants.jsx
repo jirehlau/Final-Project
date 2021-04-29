@@ -1,9 +1,9 @@
 import './Restaurants.css';
 import React from 'react';
-import AddRestaurant from '../../components/AddRestaurant/AddRestaurant';
+// import AddRestaurant from '../../components/AddRestaurant/AddRestaurant';
 import MyRestaurants from '../../components/MyRestaurants/MyRestaurants';
 import { Link } from 'react-router-dom';
-import UserLogOut from '../../components/UserLogOut/UserLogOut';
+// import UserLogOut  from '../../components/UserLogOut/UserLogOut';
 
  class Restaurants extends React.Component {
   state = {
@@ -39,12 +39,17 @@ async componentDidMount() {
   render() {
     return (
       <main className="Restaurants">
-        <nav>
-            <h1>Restaurants</h1>
-            <UserLogOut />
+        <nav className="RestaurantsNav">
+          <ul id="nav">
+            <li>Home</li>
+            <li>Company</li>
+            <li><Link to ='../AddRestaurantForm/AddRestaurantForm.jsx'>Add Restaurant</Link></li>
+            <li>Contact us</li>
+          </ul>
         </nav>
         <div>
           <MyRestaurants restaurantList={this.state.restaurantlist} />
+
         </div>
       </main>
     )

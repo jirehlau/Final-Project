@@ -9,9 +9,9 @@ router.post('/', restaurantCtrl.create)
 // GET /api/orders
 router.get('/', restaurantCtrl.index)
 
-router.get('/addrestaurantform',restaurantCtrl.AddRestaurantForm)  //ADDING RESTAURANTS 
+router.post('/addrestaurantform',restaurantCtrl.AddRestaurantForm)  //ADDING RESTAURANTS 
 
-router.get('/myrestaurants',restaurantCtrl.myRestaurants) //THIS IS THE SUMMARY PAGE OF MY RESTAURANT
+router.get('/myrestaurants',restaurantCtrl.myRestaurants) 
 
 router.get('/myrestaurants/:id',restaurantCtrl.myRestaurantsDetails) //DETAILS OF MY RESTAURANT PAGE 
 

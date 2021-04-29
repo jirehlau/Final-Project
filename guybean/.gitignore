@@ -1,2 +1,27 @@
 .env
 /node_modules
+
+
+Security access key: AKIATPMED25ALQ6CHTZV
+Access Key ID: AKIATPMED25ALQ6CHTZV
+
+policy json document:
+{
+  "Id": "Policy1619658292508",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1619658287208",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::guybean/*",
+      "Principal": "*"
+    }
+  ]
+}
+
+https://www.youtube.com/watch?v=XeiOnkEI7XI&ab_channel=Academind
+
+https://dev.to/austinbrownopspark/how-to-upload-and-serve-photos-using-react-node-express-36ii

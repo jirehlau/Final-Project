@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Restaurants from './pages/Restaurants/Restaurants';
 import AuthPage from './pages/AuthPage/AuthPage';
+import AddRestaurantForm from './pages/AddRestaurantForm/AddRestaurantForm';
 
 
 class App extends React.Component{
@@ -33,9 +34,9 @@ class App extends React.Component{
               <Route path='/Restaurants' render={(props) => (
                 <Restaurants {...props}/>
               )}/>
-              {/* <Route path='/AddRestaurantForm' render={(props) => (
+              <Route path='/AddRestaurantForm' render={(props) => (
                 <AddRestaurantForm {...props}/>
-              )}/> */}
+              )}/>
 
               <Redirect to="/Restaurants" />
             </Switch>
