@@ -13,6 +13,8 @@ router.post('/addrestaurantform',restaurantCtrl.AddRestaurantForm)  //ADDING RES
 
 router.get('/myrestaurants',restaurantCtrl.myRestaurants) 
 
+// router.get('/contactus',restaurantCtrl.contactUs) 
+
 router.get('/myrestaurants/:id',restaurantCtrl.myRestaurantsDetails) //DETAILS OF MY RESTAURANT PAGE 
 
 

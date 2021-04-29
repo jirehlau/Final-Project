@@ -41,10 +41,10 @@ async componentDidMount() {
       <main className="Restaurants">
         <nav className="RestaurantsNav">
           <ul id="nav">
-            <li>Home</li>
+            <li><Link to ='../MyRestaurants'>Home</Link></li>
             <li>Company</li>
-            <li><Link to ='../AddRestaurantForm/AddRestaurantForm.jsx'>Add Restaurant</Link></li>
-            <li>Contact us</li>
+            <li><Link to ='../AddRestaurantForm'>Add Restaurant</Link></li>
+            <li><Link to ='../ContactUs/'>Contact Us</Link></li>
           </ul>
         </nav>
         <div>

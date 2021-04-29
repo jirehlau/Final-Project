@@ -1,5 +1,6 @@
-.RestaurantsNav{
-    background-color: black;
+main{
+    background-color: #FFE7D0;
+    color: #FF7D61;
 }
 
 #nav {
@@ -7,7 +8,15 @@
     float: left;
     margin: 0 0 3em 0;
     padding: 0;
-    list-style: none; 
+    list-style: none;
+    width: 100%;
+    margin: 0 0 3em 0;
+    padding: 0;
+    list-style: none;
+    background-color: #D4E1F0;
+    border-bottom: 1px solid #ccc; 
+    border-top: 1px solid #ccc;  
+    text-decoration: none;
 }
 
 #nav li {
@@ -18,15 +27,4 @@
     font-weight: bold;
     color: #069;
     border-right: 1px solid #ccc; 
-}
-
-#nav {
-    width: 100%;
-    float: left;
-    margin: 0 0 3em 0;
-    padding: 0;
-    list-style: none;
-    background-color: #f2f2f2;
-    border-bottom: 1px solid #ccc; 
-    border-top: 1px solid #ccc; 
 }

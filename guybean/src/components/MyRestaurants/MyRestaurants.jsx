@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import './MyRestaurants.css';
+import { Link } from 'react-router-dom';
+
 
 class MyRestaurants extends Component {
     state = {
@@ -21,28 +23,25 @@ class MyRestaurants extends Component {
         }
       }
 
+
     render(){
         return(
             <main className="MyRestaurants">
                 <nav className="MyRestaurantsNav">
                 </nav>
-                <div>
-                    {this.state.restaurantList.map(
-                        r => r.name,
-                    )}
-                    <br></br>
-                   {this.state.restaurantList.map(
-                        r => r.address,
-                    )}          
-                    <br></br>
-                   {this.state.restaurantList.map(
-                        r => r.contactNumber,
-                    )}       
-                    <br></br>
-                   {this.state.restaurantList.map(
-                        r => r.pictureURL,
-                    )}                                      
-                </div>
+                    <h1>Restaurants</h1>  
+            <div className="swiper">
+                <section className="restaurantInfo">
+                    {this.state.restaurantList.map(r => {
+                       return (<div className="restaurant">
+                            <h2 className="restName">{r.name}</h2>
+                            <p className="restNumber">{r.contactNumber}</p> 
+                            <p className="restAddress">{r.address}</p> 
+                            <div className="imageContainer">{<img src= {r.pictureURL} alt="" className="image"/>}</div><br></br><br></br><br></br><hr/>
+                        </div>)
+                    })}
+                </section>
+            </div>
             </main>
         )
     }
