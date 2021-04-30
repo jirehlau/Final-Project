@@ -24,9 +24,8 @@ GuyBean
 * React
 * Node.JS
 * MongoDB
-* Mongoose
+* Express
 * JavaScript
-* CSS
 
 <h2>Next Steps</h2>
 
