@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import './MyRestaurants.css';
-import { Link } from 'react-router-dom';
 
 
 class MyRestaurants extends Component {

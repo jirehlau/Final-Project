@@ -31,14 +31,14 @@ class App extends React.Component{
        
         { this.state.user ? 
             <Switch>
-              <Route path='/myrestaurants' render={(props) => (
+              <Route path='/restaurants' render={(props) => (
                 <Restaurants {...props}/>
               )}/>
               <Route path='/AddRestaurantForm' render={(props) => (
                 <AddRestaurantForm {...props}/>
               )}/>
 
-              <Redirect to="/myrestaurants" />
+              <Redirect to="/restaurants" />
             </Switch>
           :
           <div>

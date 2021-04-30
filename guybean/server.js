@@ -4,7 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 
 require('dotenv').config()
-require('./guybean/config/database.js')
+require('./config/database.js')
 
 const app = express();
 
@@ -14,9 +14,9 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
-app.use('/api/userRoutes', require('./guybean/routes/api/userRoutes'));
-app.use(require('./guybean/config/auth'));
-app.use('/api/restaurantRoutes', require('./guybean/routes/api/restaurantRoutes.js'));
+app.use('/api/userRoutes', require('./routes/api/userRoutes'));
+app.use(require('./config/auth'));
+app.use('/api/restaurantRoutes', require('./routes/api/restaurantRoutes.js'));
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));

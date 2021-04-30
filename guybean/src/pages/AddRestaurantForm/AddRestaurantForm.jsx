@@ -1,8 +1,6 @@
 import { Component } from 'react';
 import './AddRestaurantForm.css';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { Redirect } from 'react-router';
 
 
 class AddRestaurantForm extends Component {
@@ -52,17 +50,8 @@ class AddRestaurantForm extends Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
-    handleSubmit () {
-        axios.post(/**/)
-          .then(() => this.setState({ redirect: true }));
-      }
 
     render(){
-    const { redirect } = this.state;
-
-    if (redirect) {
-        return <Redirect to='../MyRestaurants/MyRestaurants.jsx'/>;
-    }
         return(
             <main className="AddRestaurantForm">
                 <nav className="AddRestaurantFormNav">
