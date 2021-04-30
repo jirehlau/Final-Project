@@ -5,7 +5,7 @@ GuyBean
 
 <h2>Visit the site</h2>
 
-[Visit the site]()
+[Visit the site](https://guybean-react.herokuapp.com/)
 
 <h2>Restaurants</h2>
 
